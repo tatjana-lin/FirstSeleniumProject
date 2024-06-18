@@ -4,27 +4,22 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Random;
+
 public class CreateAccountTests extends TestBase{
 
     @Test(enabled = false)
     public void createAccountPositiveTest(){
-//    click on Register link
-//    enter First name
-//    enter Last name
-//    enter email
-//    enter password
-//    confirm password
-//    click on the registration button
-//    assert customer/info is present
 
-        //click on Register link
-        click(By.cssSelector(".ico-register"));
+        int i = new Random().nextInt(1000) + 1000;
+//        click on Register link
+        click(By.cssSelector("[href='/register']"));
 //        enter First name
         type(By.name("FirstName"), "Alice");
 //        enter Last name
         type(By.name("LastName"), "Jackson");
 //        enter email
-        type(By.name("Email"), "valid@email.com");
+        type(By.name("Email"), "valid" + i + "@email.com");
 //         enter password
         type(By.name("Password"), "ValidPass123$");
 //         confirm password
@@ -32,9 +27,21 @@ public class CreateAccountTests extends TestBase{
 
 //          click on Registration button
         click(By.name("register-button"));
-//          assert customer/info is present
-        Assert.assertTrue(isElementPresent(By.xpath("//a[.='valid@email.com']")));
-
+//          assert Logout link is present
+        Assert.assertTrue(isElementPresent(By.cssSelector("[href='/logout']")));
     }
 
+    @Test
+    public void createExistedAccountNegativeTest(){
+
+        click(By.cssSelector("[href='/register']"));
+        type(By.name("FirstName"), "Alice");
+        type(By.name("LastName"), "Jackson");
+        type(By.name("Email"), "valid@email.com");
+        type(By.name("Password"), "ValidPass123$");
+        type(By.name("ConfirmPassword"), "ValidPass123$");
+
+        click(By.name("register-button"));
+        Assert.assertTrue(isElementPresent(By.cssSelector(".validation-summary-errors")));
+    }
 }
