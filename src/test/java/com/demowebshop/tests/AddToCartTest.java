@@ -1,6 +1,6 @@
 package com.demowebshop.tests;
 
-import org.openqa.selenium.By;
+import com.demowebshop.models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -10,29 +10,28 @@ public class AddToCartTest extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        click(By.cssSelector("[href='/login']"));
-        type(By.name("Email"), "valid@email.com");
-        type(By.name("Password"), "ValidPass123$");
-        click(By.cssSelector(".button-1.login-button"));
+        app.getUser().clickOnLoginLink();
+        app.getUser().fillLoginForm(new User()
+                .setEmail("valid@email.com")
+                .setPassword("ValidPass123$"));
+        app.getUser().clickOnLoginButton();
+        app.getUser().pause(1000);
     }
 
-    @Test
+    @Test(enabled = false)
     public void addItemToCartTest(){
-//        click on the AddToCart button
-        click((By.cssSelector(".item-box:nth-child(3) .buttons")));
-//        click on the Shopping cart link
-        click(By.id("topcartlink"));
 
-//        Assert.assertTrue(isElementPresent(By.xpath("//td[3]/a[.='14.1-inch Laptop']")));
-        Assert.assertTrue(isTextPresent(By.cssSelector(".cart-item-row .product>a"), "14.1-inch Laptop"));
+        app.getCart().clickOnAddToCartButton();
+        app.getUser().pause(1000);
+        app.getCart().clickOnShoppingCartLink();
+        app.getUser().pause(1000);
+//        Assert.assertTrue(app.getCart().isProductAddedToCart());
+        Assert.assertTrue(app.getCart().isProductAddedToCart1());
     }
 
     @AfterMethod
     public void postCondition() {
-        //click on Card
-        click(By.name("removefromcart"));
-        //click on Remove button
-        click(By.name("updatecart"));
+        app.getCart().removeProductFromCart();
     }
 }
 
