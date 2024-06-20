@@ -10,10 +10,10 @@ public class HomePageHelper extends BaseHelper {
     }
 
     public boolean isHomeComponentPresent() {
-        return isElementPresent(By.cssSelector("a[href='https://www.tricentis.com/speed/']"));
+        return isElementPresent(By.cssSelector("#nivo-slider"));
     }
 
     public void clickOnHomeLink() {
-        click(By.cssSelector("a[href='https://www.tricentis.com/speed/']"));
+        click(By.cssSelector(".header-logo>a"));
     }
 }
