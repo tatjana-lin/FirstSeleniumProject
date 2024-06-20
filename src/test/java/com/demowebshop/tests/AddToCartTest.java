@@ -10,6 +10,9 @@ public class AddToCartTest extends TestBase {
 
     @BeforeMethod
     public void precondition() {
+        if(!app.getUser().isLoginLinkPresent()) {
+            app.getUser().clickOnLogOutLink();
+        }
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginForm(new User()
                 .setEmail("valid@email.com")

@@ -17,7 +17,7 @@ public class AddToCartHelper extends BaseHelper {
     }
 
     public void clickOnShoppingCartLink() {
-        click(By.xpath("//li[@id='topcartlink']/a"));
+        click(By.cssSelector("#topcartlink>a"));
     }
 
     public void clickOnAddToCartButton() {

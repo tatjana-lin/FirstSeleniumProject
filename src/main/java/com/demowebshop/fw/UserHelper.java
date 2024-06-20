@@ -9,7 +9,7 @@ public class UserHelper extends BaseHelper{
         super(driver);
     }
 
-    public boolean isLogOutButtonPresent() {
+    public boolean isLogOutLinkPresent() {
         return isElementPresent(By.cssSelector("[href='/logout']"));
     }
 
@@ -48,5 +48,13 @@ public class UserHelper extends BaseHelper{
 
     public void clickOnLoginLink() {
         click(By.cssSelector("[href='/login']"));
+    }
+
+    public boolean isLoginLinkPresent() {
+        return isElementPresent(By.cssSelector("[href='/login']"));
+    }
+
+    public void clickOnLogOutLink() {
+      click(By.cssSelector("[href='/logout']"));
     }
 }

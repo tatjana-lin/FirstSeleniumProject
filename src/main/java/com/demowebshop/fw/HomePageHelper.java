@@ -13,4 +13,7 @@ public class HomePageHelper extends BaseHelper {
         return isElementPresent(By.cssSelector("a[href='https://www.tricentis.com/speed/']"));
     }
 
+    public void clickOnHomeLink() {
+        click(By.cssSelector("a[href='https://www.tricentis.com/speed/']"));
+    }
 }

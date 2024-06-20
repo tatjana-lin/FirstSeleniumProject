@@ -2,9 +2,17 @@ package com.demowebshop.tests;
 
 import com.demowebshop.models.User;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase{
+
+    @BeforeMethod
+    public void ensurePrecondition(){
+        if(!app.getUser().isLoginLinkPresent()){
+            app.getUser().clickOnLogOutLink();
+        }
+    }
 
     @Test(enabled = false)
     public void createAccountPositiveTest(){
@@ -18,7 +26,7 @@ public class CreateAccountTests extends TestBase{
                 .setPassword("ValidPass123$"));
         app.getUser().clickOnRegisterButton();
 
-        Assert.assertTrue(app.getUser().isLogOutButtonPresent());
+        Assert.assertTrue(app.getUser().isLogOutLinkPresent());
     }
 
     @Test
