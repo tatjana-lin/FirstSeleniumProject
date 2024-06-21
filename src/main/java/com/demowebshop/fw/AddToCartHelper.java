@@ -9,10 +9,6 @@ public class AddToCartHelper extends BaseHelper {
     }
 
     public boolean isProductAddedToCart() {
-        return isElementPresent(By.xpath("//td//a[.='14.1-inch Laptop']"));
-    }
-
-    public boolean isProductAddedToCart1() {
         return isTextPresent(By.cssSelector(".cart-item-row .product>a"), "14.1-inch Laptop");
     }
 

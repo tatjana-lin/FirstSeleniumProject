@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class FirstSeleniumTest {
+public class FirstSeleniumTest{
 
     WebDriver driver;
 
@@ -14,11 +14,13 @@ public class FirstSeleniumTest {
     @BeforeMethod
     public void setUp(){
      driver = new ChromeDriver();
-     driver.get("https://www.google.com/");
+     driver.get("https://www.google.com");
 
-     driver.navigate().to("https://www.google.com/"); //with history
-      driver.navigate().back();
-     driver.navigate().refresh();
+     driver.navigate().to("https://www.google.com"); //with history
+
+        driver.navigate().back();
+        driver.navigate().forward();
+        driver.navigate().refresh();
     }
 
     //tests
@@ -28,7 +30,7 @@ public class FirstSeleniumTest {
         System.out.println("Google opened!");
     }
     //after - tearDown
-    @AfterMethod
+    @AfterMethod(enabled = false)
     public void tearDown(){
         //interview question
         driver.quit(); //close all tabs & browser

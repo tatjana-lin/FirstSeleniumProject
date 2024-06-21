@@ -21,15 +21,15 @@ public class AddToCartTest extends TestBase {
         app.getUser().pause(1000);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void addItemToCartTest(){
 
         app.getCart().clickOnAddToCartButton();
-        app.getUser().pause(1000);
+//        app.getUser().pause(1000);
         app.getCart().clickOnShoppingCartLink();
-        app.getUser().pause(1000);
-//        Assert.assertTrue(app.getCart().isProductAddedToCart());
-        Assert.assertTrue(app.getCart().isProductAddedToCart1());
+//        app.getUser().pause(1000);
+////        Assert.assertTrue(app.getCart().isProductAddedToCart());
+        Assert.assertTrue(app.getCart().isProductAddedToCart());
     }
 
     @AfterMethod
