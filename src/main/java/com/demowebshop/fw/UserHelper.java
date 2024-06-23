@@ -57,4 +57,21 @@ public class UserHelper extends BaseHelper{
     public void clickOnLogOutLink() {
       click(By.cssSelector("[href='/logout']"));
     }
+
+    public boolean isErrorEnterValidEmailPresent() {
+        return isElementPresent(By.cssSelector(".field-validation-error"));
+    }
+
+    public void clearLoginForm() {
+
+        driver.findElement(By.name("Email")).click();
+
+        driver.findElement(By.name("Email")).clear();
+
+        driver.findElement(By.name("Password")).click();
+
+        driver.findElement(By.name("Password")).clear();
+
+    }
+
 }

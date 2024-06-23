@@ -1,5 +1,6 @@
 package com.demowebshop.tests;
 
+import com.demowebshop.data.UserData;
 import com.demowebshop.models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -15,8 +16,8 @@ public class AddToCartTest extends TestBase {
         }
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginForm(new User()
-                .setEmail("valid@email.com")
-                .setPassword("ValidPass123$"));
+                .setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginButton();
         app.getUser().pause(1000);
     }
@@ -25,10 +26,8 @@ public class AddToCartTest extends TestBase {
     public void addItemToCartTest(){
 
         app.getCart().clickOnAddToCartButton();
-//        app.getUser().pause(1000);
         app.getCart().clickOnShoppingCartLink();
-//        app.getUser().pause(1000);
-////        Assert.assertTrue(app.getCart().isProductAddedToCart());
+
         Assert.assertTrue(app.getCart().isProductAddedToCart());
     }
 
