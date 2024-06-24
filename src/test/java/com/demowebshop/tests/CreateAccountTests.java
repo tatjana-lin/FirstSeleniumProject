@@ -29,6 +29,7 @@ public class CreateAccountTests extends TestBase{
     public void createAccountPositiveTest(){
 //        int i = new Random().nextInt(1000) + 1000;
 //        type(By.name("Email"), "valid" + i + "@email.com");
+        logger.info("Create account with data: " + UserData.FIRST_NAME + " " + UserData.LAST_NAME + " " + UserData.EMAIL + " " + UserData.PASSWORD);
 
         app.getUser().clickOnRegisterLink();
         app.getUser().fillRegisterForm(new User()
@@ -42,7 +43,7 @@ public class CreateAccountTests extends TestBase{
 
     @Test
     public void createExistedAccountNegativeTest(){
-        
+        logger.info("Existed account data: " + UserData.FIRST_NAME + " " + UserData.LAST_NAME + " " + UserData.EMAIL + " " + UserData.PASSWORD);
         app.getUser().clickOnRegisterLink();
         app.getUser().fillRegisterForm(new User()
                 .setFirstName(UserData.FIRST_NAME).setLastName(UserData.LAST_NAME)

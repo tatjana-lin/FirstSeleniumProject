@@ -18,6 +18,8 @@ public class LoginTests extends TestBase {
     @Test
     public void loginPositiveTest(){
 
+        logger.info("Users login data: " + UserData.EMAIL + " --- " + UserData.PASSWORD);
+
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginForm(new User()
                 .setEmail(UserData.EMAIL)
@@ -29,6 +31,7 @@ public class LoginTests extends TestBase {
 
     @Test
     public void loginWithInvalidEmailNegativeTest(){
+        logger.info("Users data: invalidemail.com --- " + UserData.PASSWORD);
 
         app.getUser().clickOnLoginLink();
         app.getUser().fillLoginForm(new User()
