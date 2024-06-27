@@ -16,4 +16,20 @@ public class HomePage extends BasePage{
         click(jsAlerts);
         return new JSAlertsPage(driver);
     }
+
+    @FindBy(css = ":nth-child(34)>a")
+    WebElement nestedFrames;
+
+    public NestedFramesPage getNestedFramesPage() {
+        click(nestedFrames);
+        return new NestedFramesPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(33)>a")
+    WebElement multipleWindowsLink;
+
+    public MultipleWindowsPage getMultipleWindowsPage() {
+        click(multipleWindowsLink);
+        return new MultipleWindowsPage(driver);
+    }
 }

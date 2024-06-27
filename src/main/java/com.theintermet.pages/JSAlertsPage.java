@@ -55,7 +55,6 @@ public class JSAlertsPage extends BasePage {
             driver.switchTo().alert().dismiss();
         }
         return this;
-
     }
 
 }
