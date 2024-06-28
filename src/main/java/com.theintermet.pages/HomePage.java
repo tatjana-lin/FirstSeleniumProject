@@ -32,4 +32,18 @@ public class HomePage extends BasePage{
         click(multipleWindowsLink);
         return new MultipleWindowsPage(driver);
     }
+
+    @FindBy(css = ":nth-child(24)>a")
+    WebElement horizontalSliderLink;
+    public HorizontalSliderPage getHorizontalSliderPage() {
+        click(horizontalSliderLink);
+        return new HorizontalSliderPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(25)>a")
+    WebElement hoverLink;
+    public HoversPage getHoverPage() {
+        click(hoverLink);
+        return new HoversPage(driver);
+    }
 }
