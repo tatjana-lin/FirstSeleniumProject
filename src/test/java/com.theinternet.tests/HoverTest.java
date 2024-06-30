@@ -13,13 +13,8 @@ public class HoverTest extends TestBase {
     }
 
     @Test
-    public void hoverOverOneImageTest() {
-        new HoversPage(driver).hoverOver(1).verifyInfo(1);
-    }
-
-    @Test
-    public void hoverOverAllImagesTest() {
-        new HoversPage(driver).hoverOverAndVerifyInfo();
+    public void hoverTest() {
+        new HoversPage(driver).hoverOverFigure(1).verifyInfo(1);
     }
 
 }
