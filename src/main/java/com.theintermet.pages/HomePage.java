@@ -42,8 +42,33 @@ public class HomePage extends BasePage{
 
     @FindBy(css = ":nth-child(25)>a")
     WebElement hoverLink;
+
     public HoversPage getHoverPage() {
         click(hoverLink);
         return new HoversPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(7)>a")
+    WebElement contextMenuLink;
+
+    public ContextMenuPage getContextMenuPage() {
+        click(contextMenuLink);
+        return new ContextMenuPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(11)>a")
+    WebElement dropdownLink;
+
+    public DropdownListPage getDropdownListPage() {
+        click(dropdownLink);
+        return new DropdownListPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(10)>a")
+    WebElement dragAndDropLink;
+
+    public DragAndDropPage getDragAndDropPage() {
+        click(dragAndDropLink);
+        return new DragAndDropPage(driver);
     }
 }
