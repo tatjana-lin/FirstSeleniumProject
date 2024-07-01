@@ -45,11 +45,12 @@ public class DragAndDropPage extends BasePage {
 
     public DragAndDropPage dragAndDropByAction(int x, int y) {
 
+        // get coordinates shapeA (from) and print
         int xOffset1 = columnA.getLocation().getX();
         int yOffset1 = columnA.getLocation().getY();
         System.out.println("Column A: x --> " + xOffset1 + " *** " + " y --> " + yOffset1);
 
-        // get coordinates dropHere (to) and print
+        // get coordinates shapeB (to) and print
         int xOffset = columnB.getLocation().getX();
         int yOffset = columnB.getLocation().getY();
         System.out.println("Column B: x --> " + xOffset + " *** " + " y --> " + yOffset);
