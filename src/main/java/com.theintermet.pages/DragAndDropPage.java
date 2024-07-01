@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class DragAndDropPage extends BasePage {
 
@@ -29,18 +30,21 @@ public class DragAndDropPage extends BasePage {
     @FindBy(css = "#column-b>header")
     WebElement headerB;
 
-    public DragAndDropPage verifyText() {
-        Assert.assertTrue(shouldHaveText(headerA, "B", 5));
-        Assert.assertTrue(shouldHaveText(headerB, "A", 5));
+    public DragAndDropPage verifyTextInBothShapes() {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(shouldHaveText(headerA, "B", 5));
+        softAssert.assertTrue(shouldHaveText(headerB, "A", 5));
+        softAssert.assertAll();
         return this;
     }
 
-    public DragAndDropPage verifyText1(String text) {
+    public DragAndDropPage verifyTextInOneShape(String text) {
         Assert.assertTrue(shouldHaveText(headerA, text, 5));
         return this;
     }
 
     public DragAndDropPage dragAndDropByAction(int x, int y) {
+
         int xOffset1 = columnA.getLocation().getX();
         int yOffset1 = columnA.getLocation().getY();
         System.out.println("Column A: x --> " + xOffset1 + " *** " + " y --> " + yOffset1);
@@ -49,6 +53,7 @@ public class DragAndDropPage extends BasePage {
         int xOffset = columnB.getLocation().getX();
         int yOffset = columnB.getLocation().getY();
         System.out.println("Column B: x --> " + xOffset + " *** " + " y --> " + yOffset);
+
         // find the difference xOffset and yOffset
         xOffset = (xOffset - xOffset1) + x;
         yOffset = (yOffset - yOffset1) + y;

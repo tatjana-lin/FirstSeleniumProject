@@ -14,17 +14,17 @@ public class DragAndDropTests extends TestBase {
 
     @Test
     public void dragAndDropTest() {
-        new DragAndDropPage(driver).dragAndDropAction().verifyText();
+        new DragAndDropPage(driver).dragAndDropAction().verifyTextInBothShapes();
     }
 
     @Test
     public void dragAndDropTest1() {
-        new DragAndDropPage(driver).dragAndDropAction().verifyText1("B");
+        new DragAndDropPage(driver).dragAndDropAction().verifyTextInOneShape("B");
     }
 
     @Test
     public void dragAndDropByTest() {
-        new DragAndDropPage(driver).dragAndDropByAction(0,0).verifyText();
+        new DragAndDropPage(driver).dragAndDropByAction(0,0).verifyTextInBothShapes();
     }
 
 }
