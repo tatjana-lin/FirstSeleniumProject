@@ -71,4 +71,20 @@ public class HomePage extends BasePage{
         click(dragAndDropLink);
         return new DragAndDropPage(driver);
     }
+
+
+    @FindBy(css = ":nth-child(18)>a")
+    WebElement fileUploadLink;
+
+    public FileUploadPage getFileUploadPage() {
+        click(fileUploadLink);
+        return new FileUploadPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(28)>a")
+    WebElement jQueryLink;
+    public JQueryUIMenusPage getJQueryUIMenusPage() {
+        click(jQueryLink);
+        return new JQueryUIMenusPage(driver);
+    }
 }
