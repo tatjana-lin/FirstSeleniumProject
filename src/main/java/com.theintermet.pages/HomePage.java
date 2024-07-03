@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -35,6 +35,7 @@ public class HomePage extends BasePage{
 
     @FindBy(css = ":nth-child(24)>a")
     WebElement horizontalSliderLink;
+
     public HorizontalSliderPage getHorizontalSliderPage() {
         click(horizontalSliderLink);
         return new HorizontalSliderPage(driver);
@@ -83,8 +84,24 @@ public class HomePage extends BasePage{
 
     @FindBy(css = ":nth-child(28)>a")
     WebElement jQueryLink;
+
     public JQueryUIMenusPage getJQueryUIMenusPage() {
         click(jQueryLink);
         return new JQueryUIMenusPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(16)>a")
+    WebElement exitIntentLink;
+
+    public ExitIntentPage getExitIntentPage() {
+        click(exitIntentLink);
+        return new ExitIntentPage(driver);
+    }
+
+    @FindBy(css = ":nth-child(4)>a")
+    WebElement brokenImagesLink;
+    public BrokenImagesPage getBrokenImagesPage() {
+        click(brokenImagesLink);
+        return new BrokenImagesPage(driver);
     }
 }

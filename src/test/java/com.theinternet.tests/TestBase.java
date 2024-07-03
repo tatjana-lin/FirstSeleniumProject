@@ -18,7 +18,7 @@ public class TestBase {
         driver.get("https://the-internet.herokuapp.com/");
     }
 
-    @AfterMethod(enabled = true)
+    @AfterMethod(enabled = false)
     public void tearDown() {
         driver.quit();
     }

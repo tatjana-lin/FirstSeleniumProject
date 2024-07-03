@@ -1,9 +1,6 @@
 package com.theintermet.pages;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Rectangle;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -88,5 +85,25 @@ public class BasePage {
             }
         }
         return false;
+    }
+
+    public String checkImageSizeWithJS(WebElement image) {
+        String result;
+        try {
+            boolean imageDisplay = (Boolean) ((JavascriptExecutor) driver)
+                    .executeScript("return (typeof arguments[0].naturalWidth != undefined && arguments[0].naturalWidth>0);", image);
+            if (imageDisplay) {
+                System.out.println("Image is OK");
+                System.out.println("*****************************************");
+                return result = "OK";
+            } else {
+                System.out.println("Image is BROKEN");
+                System.out.println("*****************************************");
+                return result = "BROKEN";
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR occurred");
+        }
+        return result = "ERROR";
     }
 }
