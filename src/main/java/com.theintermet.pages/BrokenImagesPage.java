@@ -20,7 +20,8 @@ public class BrokenImagesPage extends BasePage {
 
         for (int i = 0; i < images.size(); i++) {
             WebElement image = images.get(i);
-
+            String imageUrl = image.getAttribute("src");
+            verifyLinks(imageUrl);
             checkImageSizeWithJS(image);
         }
         return this;

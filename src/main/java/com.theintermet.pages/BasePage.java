@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
@@ -86,6 +88,28 @@ public class BasePage {
         }
         return false;
     }
+
+
+    public void verifyLinks(String linkUrl) {
+
+        try {
+            URL url = new URL(linkUrl);
+//        create URL connection and get response code
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.connect();
+
+            if(connection.getResponseCode() >= 400){
+                System.out.println(linkUrl + "-" + connection.getResponseMessage() + " link is broken");
+
+            }else{
+                System.out.println(linkUrl + " - " + connection.getResponseMessage());
+            }
+        } catch (Exception e) {
+            System.out.println(linkUrl + "-" + e.getMessage() + " - Error occurred");
+        }
+    }
+
 
     public String checkImageSizeWithJS(WebElement image) {
         String result;
