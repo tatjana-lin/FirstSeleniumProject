@@ -17,6 +17,7 @@ public class TestBase {
 
     @BeforeMethod
     public void init(Method method) {
+
         logger.info("Start test: " + method.getName());
         driver = new ChromeDriver();
         driver.manage().window().maximize();

@@ -98,10 +98,17 @@ public class HomePage extends BasePage {
         return new ExitIntentPage(driver);
     }
 
-    @FindBy(css = ":nth-child(4)>a")
+    @FindBy(css = "li:nth-child(4)>a")
     WebElement brokenImagesLink;
     public BrokenImagesPage getBrokenImagesPage() {
         click(brokenImagesLink);
         return new BrokenImagesPage(driver);
+    }
+
+    @FindBy(css = "li:nth-child(2)>a")
+    WebElement addRemoveElementsLink;
+    public AddRemoveElementsPage getAddRemoveElementsPage() {
+        click(addRemoveElementsLink);
+        return new AddRemoveElementsPage(driver);
     }
 }

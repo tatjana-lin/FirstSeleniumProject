@@ -87,12 +87,12 @@ public class BasePage {
 
     }
 
-    public boolean isFileDownloaded(String filePath, String fileName) {
-        File downloads = new File(filePath);
-        File[] downloadsContent = downloads.listFiles();
-        for (File file : downloadsContent) {
-            if (file.getName().contains(fileName)) {
-                file.delete();
+    public boolean isFileDownloaded(String path, String name) {
+        File dir = new File(path);
+        File[] dirContents = dir.listFiles();
+
+        for (int i = 0; i < dirContents.length; i++) {
+            if (dirContents[i].getName().equals(name)) {
                 return true;
             }
         }
