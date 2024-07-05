@@ -5,7 +5,7 @@ import com.theintermet.pages.HomePage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ContextMenuTest extends TestBase{
+public class ContextMenuTest extends TestBase {
 
     @BeforeMethod
     public void precondition(){
