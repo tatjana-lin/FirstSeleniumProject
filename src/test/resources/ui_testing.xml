@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ui_testing" verbose="1">
+    <test name="JQueryUI">
+        <classes>
+            <class name="com.theinternet.tests.JQueryUIMenusTests"/>
+        </classes>
+    </test>
+</suite>
