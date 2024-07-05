@@ -36,6 +36,7 @@ public class ExitIntentPage extends BasePage {
 
     @FindBy(css = ".modal")
     WebElement modal;
+
     public ExitIntentPage verifyModalWindowIsDisplayed() {
         Assert.assertTrue(isElementVisible(modal));
         return this;

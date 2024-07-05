@@ -12,14 +12,11 @@ public class BrokenImagesTest extends TestBase {
         new HomePage(driver).getBrokenImagesPage();
     }
 
+//    на битых картинках тест ДОЛЖЕН УПАСТЬ!
     @Test
-    public void allImagesOnThePageTest() {
-        new BrokenImagesPage(driver).checkAllImages();
-    }
-
-    @Test
-    public void oneImageTest() {
-        new BrokenImagesPage(driver).checkIsImageBroken(1);
+    public void checkBrokenImageTest() {
+        new BrokenImagesPage(driver).defineLinksOfImages()
+                .checkImageIsBroken();
     }
 
 }

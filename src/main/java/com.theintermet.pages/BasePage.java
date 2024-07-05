@@ -5,15 +5,20 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 public class BasePage {
     WebDriver driver;
+
+    Logger logger = LoggerFactory.getLogger(BasePage.class);
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -52,6 +57,11 @@ public class BasePage {
             ex.getMessage();
             return false;
         }
+    }
+
+
+    public boolean isElementPresent(List<WebElement> element) {
+        return element.size() > 0;
     }
 
     public boolean isAlertPresent() {
@@ -100,34 +110,18 @@ public class BasePage {
             connection.connect();
 
             if(connection.getResponseCode() >= 400){
-                System.out.println(linkUrl + "-" + connection.getResponseMessage() + " link is broken");
+                logger.info(linkUrl + "-" + connection.getResponseMessage() + " link is broken");
 
             }else{
-                System.out.println(linkUrl + " - " + connection.getResponseMessage());
+                logger.info(linkUrl + " - " + connection.getResponseMessage());
             }
         } catch (Exception e) {
-            System.out.println(linkUrl + "-" + e.getMessage() + " - Error occurred");
+            logger.info(linkUrl + "-" + e.getMessage() + " - Error occurred");
         }
     }
 
-
-    public String checkImageSizeWithJS(WebElement image) {
-        String result;
-        try {
-            boolean imageDisplay = (Boolean) ((JavascriptExecutor) driver)
-                    .executeScript("return (typeof arguments[0].naturalWidth != undefined && arguments[0].naturalWidth>0);", image);
-            if (imageDisplay) {
-                System.out.println("Image is OK");
-                System.out.println("*****************************************");
-                return result = "OK";
-            } else {
-                System.out.println("Image is BROKEN");
-                System.out.println("*****************************************");
-                return result = "BROKEN";
-            }
-        } catch (Exception e) {
-            System.out.println("ERROR occurred");
-        }
-        return result = "ERROR";
+    public boolean checkImage(WebElement image) {
+        return (Boolean)((JavascriptExecutor)driver)
+                .executeScript("return (typeof arguments[0].naturalWidth != undefined && arguments[0].naturalWidth>0);",image);
     }
 }
