@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.theinternet.tests.JQueryUIMenusTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-07-05T21:11:18" hostname="LAPTOP-PQ7VFM0I" time="40.802">
+  <properties/>
+  <testcase name="backToJqueryUITest" classname="com.theinternet.tests.JQueryUIMenusTests" time="2.637"/>
+  <testcase name="jQueryUIMenusCsvTest" classname="com.theinternet.tests.JQueryUIMenusTests" time="5.976"/>
+  <testcase name="jQueryUIMenusExcelTest" classname="com.theinternet.tests.JQueryUIMenusTests" time="5.984"/>
+  <testcase name="jQueryUIMenusPdfTest" classname="com.theinternet.tests.JQueryUIMenusTests" time="5.83"/>
+  <system-out><![CDATA[23:11:13.027 [Test worker] INFO  com.theinternet.tests.TestBase -- Start test: backToJqueryUITest
+23:11:23.035 [Test worker] INFO  com.theinternet.tests.TestBase -- Test result: PASSED backToJqueryUITest
+23:11:23.037 [Test worker] INFO  com.theinternet.tests.TestBase -- ***********************************************************************
+23:11:23.043 [Test worker] INFO  com.theinternet.tests.TestBase -- Start test: jQueryUIMenusCsvTest
+23:11:35.123 [Test worker] INFO  com.theinternet.tests.TestBase -- Test result: PASSED jQueryUIMenusCsvTest
+23:11:35.123 [Test worker] INFO  com.theinternet.tests.TestBase -- ***********************************************************************
+23:11:35.137 [Test worker] INFO  com.theinternet.tests.TestBase -- Start test: jQueryUIMenusExcelTest
+23:11:48.873 [Test worker] INFO  com.theinternet.tests.TestBase -- Test result: PASSED jQueryUIMenusExcelTest
+23:11:48.887 [Test worker] INFO  com.theinternet.tests.TestBase -- ***********************************************************************
+23:11:48.889 [Test worker] INFO  com.theinternet.tests.TestBase -- Start test: jQueryUIMenusPdfTest
+23:12:01.183 [Test worker] INFO  com.theinternet.tests.TestBase -- Test result: PASSED jQueryUIMenusPdfTest
+23:12:01.184 [Test worker] INFO  com.theinternet.tests.TestBase -- ***********************************************************************
+]]></system-out>
+  <system-err><![CDATA[Jul 05, 2024 11:11:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+Jul 05, 2024 11:11:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+Jul 05, 2024 11:11:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+Jul 05, 2024 11:11:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 125; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+</testsuite>
